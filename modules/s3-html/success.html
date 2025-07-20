@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dataset Ready – PromptData</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>✅ Your Dataset is Ready</h1>
+    <p>You can download your dataset below or check your email if you requested it.</p>
+
+    <div class="download-box">
+      <p><strong>File:</strong> <span id="fileName"></span></p>
+      <a id="downloadLink" class="button" href="#">Download Now</a>
+    </div>
+  </main>
+
+  <script>
+    const data = JSON.parse(sessionStorage.getItem("datasetInfo"));
+    if (!data) {
+      window.location.href = "error.html";
+    } else {
+      document.getElementById("fileName").innerText = data.fileName || "dataset.csv";
+      document.getElementById("downloadLink").href = data.fileUrl;
+    }
+  </script>
+</body>
+</html>

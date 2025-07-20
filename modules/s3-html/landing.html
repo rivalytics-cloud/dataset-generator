@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromptData – Generate Your Dataset</title>
+
+  <!-- link to external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- app logic -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+
+    <!-- step header -->
+    <div class="step-header">
+      <span class="step current">1 · Customize</span>
+      <span>→</span>
+      <span class="step">2 · Generate</span>
+      <span>→</span>
+      <span class="step">3 · Download</span>
+    </div>
+
+    <h1>What dataset would you like to generate today?</h1>
+    <p>Generate datasets with a single prompt.<br>Built for analysts, educators, and bootcamps.</p>
+
+    <form id="datasetForm">
+
+      <!-- Industry -->
+      <label for="industry">Industry</label>
+      <select id="industry" name="industry" required>
+        <option value="">Select an industry</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="finance">Finance / Banking</option>
+        <option value="retail">Retail / e‑Commerce</option>
+        <option value="technology">Technology / SaaS</option>
+        <option value="manufacturing">Manufacturing</option>
+        <option value="transportation">Transportation & Logistics</option>
+        <option value="energy">Energy / Utilities</option>
+        <option value="telecom">Telecommunications</option>
+        <option value="media">Media & Entertainment</option>
+        <option value="realestate">Real‑Estate / Property</option>
+        <option value="government">Government / Public Sector</option>
+        <option value="agriculture">Agriculture / Food</option>
+        <option value="marketing">Marketing / Advertising</option>
+      </select>
+
+      <!-- Dataset Structure -->
+      <label for="structure">Dataset Structure</label>
+      <select id="structure" name="structure" required>
+        <option value="">Select structure type</option>
+        <option value="flat">Flat Table (one row per record)</option>
+        <option value="timeseries">Time‑Series</option>
+        <option value="relational">Relational (multi‑table)</option>
+        <option value="eventlog">Event / Transaction Log</option>
+        <option value="geospatial">Geospatial</option>
+        <option value="graph">Graph / Network</option>
+        <option value="hierarchical">Hierarchical / JSON‑like</option>
+      </select>
+
+      <!-- Key Details -->
+      <label for="details">Key Details</label>
+      <textarea
+        id="details"
+        name="details"
+        rows="4"
+        placeholder="e.g. include patient age, appointment type, outcome, doctor name, cost"
+        required
+      ></textarea>
+
+      <!-- Row Count -->
+      <label for="rowCount">Number of Records&nbsp;(10 – 10 000)</label>
+      <input
+        type="number"
+        id="rowCount"
+        name="rowCount"
+        min="10"
+        max="10000"
+        placeholder="e.g. 500"
+        required
+      />
+
+      <!-- File Format -->
+      <label for="format">File Format</label>
+      <select id="format" name="format" required>
+        <option value="csv">CSV</option>
+        <option value="json">JSON</option>
+      </select>
+
+      <!-- Email -->
+      <label for="email">Email (optional — receive dataset via email)</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+      />
+
+      <!-- Generate button -->
+      <button type="submit" id="generateBtn">Generate Dataset</button>
+    </form>
+  </main>
+</body>
+</html>
